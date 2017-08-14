@@ -822,6 +822,10 @@ bindings@^1.2.1:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/bindings/-/bindings-1.3.0.tgz#b346f6ecf6a95f5a815c5839fc7cdb22502f1ed7"
 
+bip32-utils@^0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/bip32-utils/-/bip32-utils-0.10.0.tgz#d1c278a101f3fe96b6a2acef1092bc692274a780"
+
 bip66@^1.1.0, bip66@^1.1.3:
   version "1.1.5"
   resolved "https://registry.yarnpkg.com/bip66/-/bip66-1.1.5.tgz#01fa8748785ca70955d5011217d1b3139969ca22"
@@ -863,7 +867,7 @@ block-stream@*:
   dependencies:
     inherits "~2.0.0"
 
-bluebird@^3.4.7:
+bluebird@^3.4.7, bluebird@^3.5.0:
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.0.tgz#791420d7f551eea2897453a8a77653f96606d67c"
 
@@ -1926,6 +1930,10 @@ file-loader@^0.11.2:
   dependencies:
     loader-utils "^1.0.2"
 
+file-saver@^1.3.3:
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/file-saver/-/file-saver-1.3.3.tgz#cdd4c44d3aa264eac2f68ec165bc791c34af1232"
+
 filename-regex@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/filename-regex/-/filename-regex-2.0.1.tgz#c1c4b9bee3e09725ddb106b75c1e301fe2f18b26"
@@ -2016,6 +2024,10 @@ fresh@0.5.0:
 fs.realpath@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
+
+fs@^0.0.1-security:
+  version "0.0.1-security"
+  resolved "https://registry.yarnpkg.com/fs/-/fs-0.0.1-security.tgz#8a7bd37186b6dddf3813f23858b57ecaaf5e41d4"
 
 fsevents@^1.0.0:
   version "1.1.2"
@@ -2636,6 +2648,16 @@ lcid@^1.0.0:
   resolved "https://registry.yarnpkg.com/lcid/-/lcid-1.0.0.tgz#308accafa0bc483a3867b4b6f2b9506251d1b835"
   dependencies:
     invert-kv "^1.0.0"
+
+libsodium-sumo@0.5.2, libsodium-sumo@^0.5.2:
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/libsodium-sumo/-/libsodium-sumo-0.5.2.tgz#0772cec6445c655de46f5001d33ed09951d82868"
+
+libsodium-wrappers-sumo@^0.5.2:
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/libsodium-wrappers-sumo/-/libsodium-wrappers-sumo-0.5.2.tgz#84645d9073e5d92e9df615497e10a26907115ade"
+  dependencies:
+    libsodium-sumo "0.5.2"
 
 load-json-file@^1.0.0:
   version "1.1.0"
@@ -3526,6 +3548,12 @@ prop-types-extra@^1.0.1:
   dependencies:
     warning "^3.0.0"
 
+prop-types@15.5.8:
+  version "15.5.8"
+  resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.5.8.tgz#6b7b2e141083be38c8595aa51fc55775c7199394"
+  dependencies:
+    fbjs "^0.8.9"
+
 prop-types@^15.5.10, prop-types@^15.5.6, prop-types@^15.5.8:
   version "15.5.10"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.5.10.tgz#2797dfc3126182e3a95e3dfbb2e893ddd7456154"
@@ -3676,6 +3704,18 @@ react-dom@^15.6.1:
     object-assign "^4.1.0"
     prop-types "^15.5.10"
 
+react-icon-base@2.0.7:
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/react-icon-base/-/react-icon-base-2.0.7.tgz#0bd18736bd6ce79ca6d69ce8387a07fb8d4ceffe"
+  dependencies:
+    prop-types "15.5.8"
+
+react-icons@^2.2.5:
+  version "2.2.5"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-2.2.5.tgz#f942501c21a4cc0456ce2bbee5032c93f6051dcf"
+  dependencies:
+    react-icon-base "2.0.7"
+
 react-overlays@^0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/react-overlays/-/react-overlays-0.7.0.tgz#531898ff566c7e5c7226ead2863b8cf9fbb5a981"
@@ -3691,6 +3731,12 @@ react-prop-types@^0.4.0:
   resolved "https://registry.yarnpkg.com/react-prop-types/-/react-prop-types-0.4.0.tgz#f99b0bfb4006929c9af2051e7c1414a5c75b93d0"
   dependencies:
     warning "^3.0.0"
+
+react-table@^6.5.3:
+  version "6.5.3"
+  resolved "https://registry.yarnpkg.com/react-table/-/react-table-6.5.3.tgz#fd84371b97bcabed8308b766faeeaf4264b155c8"
+  dependencies:
+    classnames "^2.2.5"
 
 react-transition-group@^1.2.0:
   version "1.2.0"
@@ -4305,6 +4351,10 @@ tether@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/tether/-/tether-1.4.0.tgz#0f9fa171f75bf58485d8149e94799d7ae74d1c1a"
 
+throttled-queue@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/throttled-queue/-/throttled-queue-1.0.4.tgz#0e307dc62aa1f2ac553138c46e5f2922dff24fce"
+
 thunky@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/thunky/-/thunky-0.1.0.tgz#bf30146824e2b6e67b0f2d7a4ac8beb26908684e"
@@ -4709,9 +4759,9 @@ yargs@~3.10.0:
     decamelize "^1.0.0"
     window-size "0.1.0"
 
-zencashjs@^1.1.0-a:
-  version "1.1.0-a"
-  resolved "https://registry.yarnpkg.com/zencashjs/-/zencashjs-1.1.0-a.tgz#b977ddc354ed5807696d3e5fedc803f4a943a912"
+zencashjs@^1.1.4-a:
+  version "1.1.4-a"
+  resolved "https://registry.yarnpkg.com/zencashjs/-/zencashjs-1.1.4-a.tgz#d5a077f39bea687ea047f8cb7ad08ad468854ae7"
   dependencies:
     bigi "^1.4.2"
     bs58 "^4.0.1"
@@ -4719,5 +4769,8 @@ zencashjs@^1.1.0-a:
     create-hash "^1.1.3"
     create-hmac "^1.1.6"
     int64-buffer "^0.1.9"
+    libsodium-sumo "^0.5.2"
+    libsodium-wrappers-sumo "^0.5.2"
     safe-buffer "^5.1.1"
     secp256k1 "^3.3.0"
+    varuint-bitcoin "^1.0.4"
