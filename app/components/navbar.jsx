@@ -1,6 +1,10 @@
 import React from 'react'
 import { ButtonDropdown, DropdownToggle, DropdownMenu, Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap'
 
+var navbar = {
+  backgroundColor: '#f5f5f5'
+}
+
 export default class ZNavbar extends React.Component {
   constructor (props) {
     super(props)
@@ -19,18 +23,13 @@ export default class ZNavbar extends React.Component {
   
   render () {
     return (
-      <Navbar color='faded' light toggleable>
+      <Navbar color='faded' light toggleable style={navbar}>
         <NavbarToggler right onClick={this.toggleNavbar} />
         <NavbarBrand href='/'>
-          <img src="/favicon.ico" height={42}/>&nbsp;myzenwallet.io
+          <img src="https://myhush.org/favicon.ico" height={42} />&nbsp;myhushwallet.io
         </NavbarBrand>
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className='ml-auto' navbar>
-           <NavItem>
-              <NavLink href='http://getzen.cash'>
-                FREE ZEN
-              </NavLink>
-            </NavItem>
             <NavItem>
               <NavLink href='/faq.html'>
                 FAQ
@@ -40,7 +39,7 @@ export default class ZNavbar extends React.Component {
               <NavLink href='/guide.html'>
                 GETTING STARTED
               </NavLink>
-            </NavItem>                      
+            </NavItem>                       
           </Nav>
         </Collapse>
       </Navbar>  
