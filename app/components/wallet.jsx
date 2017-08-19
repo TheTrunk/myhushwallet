@@ -222,8 +222,8 @@ class ZWalletUnlockKey extends React.Component {
                 />
               </Label>
               <FormText color="muted">
-                For Windows, it should be in %APPDATA%/zen<br/>
-                For Mac/Linux, it should be in ~/.zen
+                For Windows, it should be in %APPDATA%/hush<br/>
+                For Mac/Linux, it should be in ~/.hush
               </FormText>
             </Col>
           </FormGroup>
@@ -722,7 +722,7 @@ class ZSendZEN extends React.Component {
       var zentx = zenwalletutils.urlAppend(this.props.settings.explorerURL, 'tx/') + this.state.sentTxid
       zenTxLink = (
         <Alert color="success">
-        <strong>ZEN successfully sent!</strong> <a href={zentx}>Click here to view your transaction</a>
+        <strong>HUSH successfully sent!</strong> <a href={zentx}>Click here to view your transaction</a>
         </Alert>
       )      
     }
@@ -782,7 +782,7 @@ class ZSendZEN extends React.Component {
               <FormGroup check>
                 <Label check>
                   <Input onChange={this.handleCheckChanged} type="checkbox" />{' '}
-                  Yes, I would like to send these ZEN
+                  Yes, I would like to send these HUSH
                 </Label>
               </FormGroup> 
               <br/>                           
@@ -855,7 +855,7 @@ class ZWalletTabs extends React.Component {
     var now = new Date();
     now = now.toISOString().split('.')[0]+'Z';
 
-    var fileStr = '# Wallet dump created by myzenwallet ' + pjson.version + '\n'
+    var fileStr = '# Wallet dump created by myhushwallet ' + pjson.version + '\n'
     fileStr += '# Created on ' + now + '\n\n\n'
 
     Object.keys(this.props.publicAddresses).forEach(function(key) {
@@ -865,7 +865,7 @@ class ZWalletTabs extends React.Component {
     }.bind(this))
     
     const pkBlob = new Blob([fileStr], {type: 'text/plain;charset=utf-8'})
-    FileSaver.saveAs(pkBlob, now + '_myzenwallet_private_keys.txt')
+    FileSaver.saveAs(pkBlob, now + '_myhushwallet_private_keys.txt')
   }
 
   render () {
@@ -953,8 +953,8 @@ export default class ZWallet extends React.Component {
         showSettings: false,
         showWalletGen: false,
         compressPubKey: true,
-        insightAPI: 'https://explorer.zensystem.io/insight-api-zen/',
-        explorerURL: 'https://explorer.zensystem.io/',
+        insightAPI: 'https://explorer.myhush.org/',
+        explorerURL: 'https://explorer.myhush.org/',
         useTestNet: false,
         unlockType: UNLOCK_WALLET_TYPE.HD_WALLET
       }
@@ -1087,12 +1087,12 @@ export default class ZWallet extends React.Component {
     _settings.useTestNet = !_settings.useTestNet
 
     if (_settings.useTestNet){
-      _settings.insightAPI = 'https://aayanl.tech/insight-api-zen/'
-      _settings.explorerURL = 'https://aayanl.tech/'
+      _settings.insightAPI = 'TESTNET EXPLORER URL'
+      _settings.explorerURL = 'TESTNET EXPLORER URL'
     }
     else{
-      _settings.insightAPI = 'https://explorer.zensystem.io/insight-api-zen/'
-      _settings.explorerURL = 'https://explorer.zensystem.io/'
+      _settings.insightAPI = 'https://explorer.myhush.org/'
+      _settings.explorerURL = 'https://explorer.myhush.org/'
     }
 
     this.setState({
