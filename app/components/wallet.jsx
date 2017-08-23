@@ -5,8 +5,8 @@ import React from 'react'
 import classnames from 'classnames'
 import CopyToClipboard from 'react-copy-to-clipboard'
 import ReactTable from 'react-table'
-import zencashjs from 'zencashjs'
-import zenwalletutils from '../lib/utils'
+import hushjs from 'hushjs'
+import hushwalletutils from '../lib/utils'
 import hdwallet from '../lib/hdwallet'
 import FileSaver from 'file-saver'
 
@@ -21,7 +21,7 @@ import FAEye from 'react-icons/lib/fa/eye'
 import pjson from '../../package.json'
 
 // Throttled GET request to prevent unusable lag
-const throttledAxiosGet = zenwalletutils.promiseDebounce(axios.get, 1000, 5)
+const throttledAxiosGet = hushwalletutils.promiseDebounce(axios.get, 1000, 5)
 
 // Unlock wallet enum
 var UNLOCK_WALLET_TYPE = {
@@ -74,10 +74,10 @@ class ZWalletGenerator extends React.Component {
 
   handlePasswordPhrase(e){
     // What wif format do we use?
-    var wifHash = this.props.settings.useTestNet ? zencashjs.config.testnet.wif : zencashjs.config.mainnet.wif
+    var wifHash = this.props.settings.useTestNet ? hushjs.config.testnet.wif : hushjs.config.mainnet.wif
 
-    var pk = zencashjs.address.mkPrivKey(e.target.value)
-    var pkwif = zencashjs.address.privKeyToWIF(pk, true, wifHash)
+    var pk = hushjs.address.mkPrivKey(e.target.value)
+    var pkwif = hushjs.address.privKeyToWIF(pk, true, wifHash)
 
     if (e.target.value === ''){
       pkwif = ''
@@ -363,14 +363,14 @@ class ZAddressInfo extends React.Component {
 
   // Gets the blockchain explorer URL for an address
   getAddressBlockExplorerURL(address) {
-    return zenwalletutils.urlAppend(this.props.settings.explorerURL, 'address/') + address
+    return hushwalletutils.urlAppend(this.props.settings.explorerURL, 'address/') + address
   }
 
   // Updates a address info
   updateAddressInfo(address) {
     // GET request to URL
-    var info_url = zenwalletutils.urlAppend(this.props.settings.insightAPI, 'addr/')
-    info_url = zenwalletutils.urlAppend(info_url, address + '?noTxList=1')    
+    var info_url = hushwalletutils.urlAppend(this.props.settings.insightAPI, 'addr/')
+    info_url = hushwalletutils.urlAppend(info_url, address + '?noTxList=1')    
         
     throttledAxiosGet(info_url)
     .then(function (response){
@@ -577,7 +577,7 @@ class ZSendZEN extends React.Component {
     const satoshisToSend = Math.round(value * 100000000)
     const satoshisfeesToSend = Math.round(fee * 100000000)        
     
-    // Reset zen send progress and error message
+    // Reset hush send progress and error message
     this.setProgressValue(1)
     this.setSendErrorMessage('')
 
@@ -616,9 +616,9 @@ class ZSendZEN extends React.Component {
     const senderPrivateKey = this.props.publicAddresses[senderAddress].privateKey;
 
     // Get previous transactions
-    const prevTxURL = zenwalletutils.urlAppend(this.props.settings.insightAPI, 'addr/') + senderAddress + '/utxo'
-    const infoURL = zenwalletutils.urlAppend(this.props.settings.insightAPI, 'status?q=getInfo')
-    const sendRawTxURL = zenwalletutils.urlAppend(this.props.settings.insightAPI, 'tx/send')
+    const prevTxURL = hushwalletutils.urlAppend(this.props.settings.insightAPI, 'addr/') + senderAddress + '/utxo'
+    const infoURL = hushwalletutils.urlAppend(this.props.settings.insightAPI, 'status?q=getInfo')
+    const sendRawTxURL = hushwalletutils.urlAppend(this.props.settings.insightAPI, 'tx/send')
 
     // Building our transaction TXOBJ
     // How many satoshis do we have so far
@@ -639,7 +639,7 @@ class ZSendZEN extends React.Component {
         const info_data = info_resp.data
 
         const blockHeight = info_data.info.blocks - 300
-        const blockHashURL = zenwalletutils.urlAppend(this.props.settings.insightAPI, 'block-index/') + blockHeight        
+        const blockHashURL = hushwalletutils.urlAppend(this.props.settings.insightAPI, 'block-index/') + blockHeight        
 
         // Get block hash
         axios.get(blockHashURL)
@@ -683,15 +683,15 @@ class ZSendZEN extends React.Component {
           }
 
           // Create transaction
-          var txObj = zencashjs.transaction.createRawTx(history, recipients, blockHeight, blockHash)
+          var txObj = hushjs.transaction.createRawTx(history, recipients, blockHeight, blockHash)
 
           // Sign each history transcation          
           for (var i = 0; i < history.length; i ++){
-            txObj = zencashjs.transaction.signTx(txObj, i, senderPrivateKey, this.props.settings.compressPubKey)
+            txObj = hushjs.transaction.signTx(txObj, i, senderPrivateKey, this.props.settings.compressPubKey)
           }
 
           // Convert it to hex string
-          const txHexString = zencashjs.transaction.serializeTx(txObj)
+          const txHexString = hushjs.transaction.serializeTx(txObj)
 
           axios.post(sendRawTxURL, {rawtx: txHexString})
           .then(function(sendtx_resp){         
@@ -717,19 +717,19 @@ class ZSendZEN extends React.Component {
 
   render() {
     // If send was successful
-    var zenTxLink
+    var hushTxLink
     if (this.state.sendProgress === 100){
-      var zentx = zenwalletutils.urlAppend(this.props.settings.explorerURL, 'tx/') + this.state.sentTxid
-      zenTxLink = (
+      var hushtx = hushwalletutils.urlAppend(this.props.settings.explorerURL, 'tx/') + this.state.sentTxid
+      hushTxLink = (
         <Alert color="success">
-        <strong>HUSH successfully sent!</strong> <a href={zentx}>Click here to view your transaction</a>
+        <strong>HUSH successfully sent!</strong> <a href={hushtx}>Click here to view your transaction</a>
         </Alert>
       )      
     }
 
     // Else show error why
     else if (this.state.sendErrorMessage !== ''){
-      zenTxLink = (
+      hushTxLink = (
         this.state.sendErrorMessage.split(';').map(function (s) {
           if (s !== ''){
             return (
@@ -793,7 +793,7 @@ class ZSendZEN extends React.Component {
               >Send</Button>
             </CardBlock>
             <CardFooter> 
-              {zenTxLink}
+              {hushTxLink}
               <Progress value={this.state.sendProgress} />                                  
             </CardFooter>       
           </Card>
@@ -972,21 +972,21 @@ export default class ZWallet extends React.Component {
       function _privKeyToAddr(pk, compressPubKey, useTestNet){
         // If not 64 length, probs WIF format
         if (pk.length !== 64){
-          pk = zencashjs.address.WIFToPrivKey(pk)          
+          pk = hushjs.address.WIFToPrivKey(pk)          
         }
 
         // Convert public key to public address
-        const pubKey = zencashjs.address.privKeyToPubKey(pk, compressPubKey)
+        const pubKey = hushjs.address.privKeyToPubKey(pk, compressPubKey)
 
         // Testnet or nah
-        const pubKeyHash = useTestNet ? zencashjs.config.testnet.pubKeyHash : zencashjs.config.mainnet.pubKeyHash
-        const publicAddr = zencashjs.address.pubKeyToAddr(pubKey, pubKeyHash)
+        const pubKeyHash = useTestNet ? hushjs.config.testnet.pubKeyHash : hushjs.config.mainnet.pubKeyHash
+        const publicAddr = hushjs.address.pubKeyToAddr(pubKey, pubKeyHash)
 
         return publicAddr
       }
 
       for (var i = 0; i < this.state.privateKeys.length; i++){
-        const pubKeyHash = this.state.settings.useTestNet ? zencashjs.config.testnet.wif : zencashjs.config.mainnet.wif
+        const pubKeyHash = this.state.settings.useTestNet ? hushjs.config.testnet.wif : hushjs.config.mainnet.wif
         
         var c_pk_wif;
         var c_pk = this.state.privateKeys[i]
@@ -994,13 +994,13 @@ export default class ZWallet extends React.Component {
         // If not 64 length, probs WIF format
         if (c_pk.length !== 64){
           c_pk_wif = c_pk
-          c_pk = zencashjs.address.WIFToPrivKey(c_pk)
+          c_pk = hushjs.address.WIFToPrivKey(c_pk)
         }
         else{
-          c_pk_wif = zencashjs.address.privKeyToWIF(c_pk)
+          c_pk_wif = hushjs.address.privKeyToWIF(c_pk)
         }          
 
-        var c_pk_wif = zencashjs.address.privKeyToWIF(c_pk, true, pubKeyHash)        
+        var c_pk_wif = hushjs.address.privKeyToWIF(c_pk, true, pubKeyHash)        
         const c_addr = _privKeyToAddr(c_pk, this.state.settings.compressPubKey, this.state.settings.useTestNet)        
 
         publicAddresses[c_addr] = {

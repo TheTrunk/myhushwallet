@@ -27616,7 +27616,7 @@ var ZNavbar = function (_React$Component) {
           _reactstrap.NavbarBrand,
           { href: '/' },
           _react2.default.createElement('img', { src: '/favicon.ico', height: 42 }),
-          '\xA0myzenwallet.io'
+          '\xA0myhushwallet.io'
         ),
         _react2.default.createElement(
           _reactstrap.Collapse,
@@ -27629,7 +27629,7 @@ var ZNavbar = function (_React$Component) {
               null,
               _react2.default.createElement(
                 _reactstrap.NavLink,
-                { href: 'http://getzen.cash' },
+                { href: 'http://gethush.cash' },
                 'FREE ZEN'
               )
             ),
@@ -30744,19 +30744,19 @@ var ZFooter = function (_React$Component) {
               { md: '4' },
               _react2.default.createElement(
                 'a',
-                { href: 'https://zensystem.io/' },
+                { href: 'https://hushsystem.io/' },
                 'website'
               ),
               _react2.default.createElement('br', null),
               _react2.default.createElement(
                 'a',
-                { href: 'https://blog.zensystem.io/' },
+                { href: 'https://blog.hushsystem.io/' },
                 'blog'
               ),
               _react2.default.createElement('br', null),
               _react2.default.createElement(
                 'a',
-                { href: 'https://forum.zensystem.io/' },
+                { href: 'https://forum.hushsystem.io/' },
                 'forum'
               ),
               _react2.default.createElement('br', null),
@@ -30768,7 +30768,7 @@ var ZFooter = function (_React$Component) {
               _react2.default.createElement('br', null),
               _react2.default.createElement(
                 'a',
-                { href: 'https://slackinvite.zensystem.io/' },
+                { href: 'https://slackinvite.hushsystem.io/' },
                 'slack'
               ),
               _react2.default.createElement('br', null)
@@ -31171,7 +31171,7 @@ var ZFaq = function (_React$Component) {
               'A: ',
               _react2.default.createElement(
                 'a',
-                { href: 'https://github.com/zencashofficial/myzenwallet' },
+                { href: 'https://github.com/hushcashofficial/myhushwallet' },
                 'Here you go'
               )
             ),
@@ -31210,8 +31210,8 @@ var ZFaq = function (_React$Component) {
               ' if you don\'t have one yet) and enter it into ',
               _react2.default.createElement(
                 'a',
-                { href: 'http://getzen.cash' },
-                'getzen.cash'
+                { href: 'http://gethush.cash' },
+                'gethush.cash'
               ),
               '.'
             )

@@ -24,7 +24,7 @@ export default class ZFaq extends React.Component {
 
             <p>
               <b>Q: Why are you doing this?</b><br/>
-              A: MyHushWallet was inspired by <a href="https://myetherwallet.com">MyEtherWallet's</a> mission statement: to provide the people the ability to interact with the ZEN blockchain easily, without having to run a full node.
+              A: MyHushWallet was inspired by <a href="https://myetherwallet.com">MyEtherWallet's</a> & <a href="https://github.com/ZencashOfficial/myhushwallet">MyZenWallet's</a>mission statement: to provide the people the ability to interact with the Hush blockchain easily, without having to run a full node.
             </p>        
           </Col>
         </Row>

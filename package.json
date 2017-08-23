@@ -1,9 +1,9 @@
 {
-  "name": "myzenwallet",
+  "name": "myhushwallet",
   "version": "v2.0.6a",
-  "description": "Secure ZENCash wallet online",
+  "description": "Secure Hush wallet online",
   "main": "index.js",
-  "repository": "https://github.com/kendricktan/myzenwallet.git",
+  "repository": "https://github.com/MyHush/myhushwallet.git",
   "author": "Kendrick Tan <kendricktan0814@gmail.com>",
   "license": "MIT",
   "scripts": {
@@ -40,7 +40,7 @@
     "throttled-queue": "^1.0.4",
     "webpack": "^3.3.0",
     "webpack-dev-server": "^2.5.1",
-    "zencashjs": "^1.1.4-a"
+    "hushjs": "^0.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
