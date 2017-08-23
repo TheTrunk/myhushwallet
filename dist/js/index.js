@@ -38203,19 +38203,19 @@ var ZFooter = function (_React$Component) {
               { md: '4' },
               _react2.default.createElement(
                 'a',
-                { href: 'https://hushsystem.io/' },
+                { href: 'https://myhush.org/' },
                 'website'
               ),
               _react2.default.createElement('br', null),
               _react2.default.createElement(
                 'a',
-                { href: 'https://blog.hushsystem.io/' },
+                { href: 'https://blog.myhush.org/' },
                 'blog'
               ),
               _react2.default.createElement('br', null),
               _react2.default.createElement(
                 'a',
-                { href: 'https://forum.hushsystem.io/' },
+                { href: 'https://forum.myhush.org/' },
                 'forum'
               ),
               _react2.default.createElement('br', null),
@@ -38227,7 +38227,7 @@ var ZFooter = function (_React$Component) {
               _react2.default.createElement('br', null),
               _react2.default.createElement(
                 'a',
-                { href: 'https://slackinvite.hushsystem.io/' },
+                { href: 'https://slackinvite.myhush.org/' },
                 'slack'
               ),
               _react2.default.createElement('br', null)
@@ -51499,8 +51499,8 @@ var ZWallet = function (_React$Component9) {
         showSettings: false,
         showWalletGen: false,
         compressPubKey: true,
-        insightAPI: 'https://explorer.hushsystem.io/insight-api-hush/',
-        explorerURL: 'https://explorer.hushsystem.io/',
+        insightAPI: 'https://explorer.myhush.org/api/',
+        explorerURL: 'https://explorer.myhush.org/',
         useTestNet: false,
         unlockType: UNLOCK_WALLET_TYPE.HD_WALLET
       }
@@ -51645,11 +51645,11 @@ var ZWallet = function (_React$Component9) {
       _settings.useTestNet = !_settings.useTestNet;
 
       if (_settings.useTestNet) {
-        _settings.insightAPI = 'https://aayanl.tech/insight-api-hush/';
-        _settings.explorerURL = 'https://aayanl.tech/';
+        _settings.insightAPI = 'https://testnet.myhush.org/api/';
+        _settings.explorerURL = 'https://testnet.myhush.org/';
       } else {
-        _settings.insightAPI = 'https://explorer.hushsystem.io/insight-api-hush/';
-        _settings.explorerURL = 'https://explorer.hushsystem.io/';
+        _settings.insightAPI = 'https://explorer.myhush.org/api/';
+        _settings.explorerURL = 'https://explorer.myhush.org/';
       }
 
       this.setState({
