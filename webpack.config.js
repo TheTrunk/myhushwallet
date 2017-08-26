@@ -30,7 +30,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            favicon: 'assets/images/favicon.ico',
+            favicon: 'https://myhush.org/favicon.ico',
             template: './app/index.html',
             chunks: ['index'],
             filename: 'index.html',
