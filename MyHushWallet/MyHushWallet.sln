@@ -1,0 +1,81 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DBAE49EA-E6A2-4EEA-9D1A-188FB246993A}"
+	ProjectSection(SolutionItems) = preProject
+		..\.babelrc = ..\.babelrc
+		..\.gitattributes = ..\.gitattributes
+		..\.gitignore = ..\.gitignore
+		..\.yarnclean = ..\.yarnclean
+		..\LICENSE = ..\LICENSE
+		..\package-lock.json = ..\package-lock.json
+		..\package.json = ..\package.json
+		..\README.md = ..\README.md
+		..\webpack.config.js = ..\webpack.config.js
+		..\yarn.lock = ..\yarn.lock
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "app", "app", "{FCD96876-B048-4BFE-89E6-0F264673C97C}"
+	ProjectSection(SolutionItems) = preProject
+		..\app\faq.js = ..\app\faq.js
+		..\app\guide.js = ..\app\guide.js
+		..\app\index.html = ..\app\index.html
+		..\app\index.js = ..\app\index.js
+		..\app\package.json = ..\app\package.json
+		..\app\yarn.lock = ..\app\yarn.lock
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{0711C167-6E16-4840-A083-42B72C1B379C}"
+	ProjectSection(SolutionItems) = preProject
+		..\app\lib\hdwallet.js = ..\app\lib\hdwallet.js
+		..\app\lib\utils.js = ..\app\lib\utils.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components", "components", "{A43AB6DC-4799-4F7B-80B3-F2F437463B81}"
+	ProjectSection(SolutionItems) = preProject
+		..\app\components\disclaimer.jsx = ..\app\components\disclaimer.jsx
+		..\app\components\faq.jsx = ..\app\components\faq.jsx
+		..\app\components\footer.jsx = ..\app\components\footer.jsx
+		..\app\components\guide.jsx = ..\app\components\guide.jsx
+		..\app\components\navbar.jsx = ..\app\components\navbar.jsx
+		..\app\components\wallet.jsx = ..\app\components\wallet.jsx
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dist", "dist", "{D6DD4139-B495-4C26-AAE3-EC5D46A15FD0}"
+	ProjectSection(SolutionItems) = preProject
+		..\dist\faq.html = ..\dist\faq.html
+		..\dist\favicon.ico = ..\dist\favicon.ico
+		..\dist\guide.html = ..\dist\guide.html
+		..\dist\index.html = ..\dist\index.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "assets", "assets", "{D9EAFD92-3C1F-4897-9396-28C0CD95447A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{7D3D70DC-9CF3-40FA-88AD-4AB283526956}"
+	ProjectSection(SolutionItems) = preProject
+		..\assets\images\favicon.ico = ..\assets\images\favicon.ico
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "js", "js", "{DFCFA589-0BC1-46AC-AB5D-8E3B16411323}"
+	ProjectSection(SolutionItems) = preProject
+		..\dist\js\faq.js = ..\dist\js\faq.js
+		..\dist\js\guide.js = ..\dist\js\guide.js
+		..\dist\js\index.js = ..\dist\js\index.js
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FCD96876-B048-4BFE-89E6-0F264673C97C} = {DBAE49EA-E6A2-4EEA-9D1A-188FB246993A}
+		{0711C167-6E16-4840-A083-42B72C1B379C} = {FCD96876-B048-4BFE-89E6-0F264673C97C}
+		{A43AB6DC-4799-4F7B-80B3-F2F437463B81} = {FCD96876-B048-4BFE-89E6-0F264673C97C}
+		{D6DD4139-B495-4C26-AAE3-EC5D46A15FD0} = {DBAE49EA-E6A2-4EEA-9D1A-188FB246993A}
+		{D9EAFD92-3C1F-4897-9396-28C0CD95447A} = {DBAE49EA-E6A2-4EEA-9D1A-188FB246993A}
+		{7D3D70DC-9CF3-40FA-88AD-4AB283526956} = {D9EAFD92-3C1F-4897-9396-28C0CD95447A}
+		{DFCFA589-0BC1-46AC-AB5D-8E3B16411323} = {D6DD4139-B495-4C26-AAE3-EC5D46A15FD0}
+	EndGlobalSection
+EndGlobal

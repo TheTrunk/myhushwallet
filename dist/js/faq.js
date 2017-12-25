@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 512);
+/******/ 	return __webpack_require__(__webpack_require__.s = 525);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -332,7 +332,7 @@ module.exports = invariant;
 
 
 
-var emptyFunction = __webpack_require__(11);
+var emptyFunction = __webpack_require__(9);
 
 /**
  * Similar to invariant but only logs a warning if the condition is not met.
@@ -787,6 +787,50 @@ module.exports = __webpack_require__(22);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ * 
+ */
+
+function makeEmptyFunction(arg) {
+  return function () {
+    return arg;
+  };
+}
+
+/**
+ * This function accepts and discards inputs; it has no side effects. This is
+ * primarily useful idiomatically for overridable function endpoints which
+ * always need to be callable, since JS lacks a null-call idiom ala Cocoa.
+ */
+var emptyFunction = function emptyFunction() {};
+
+emptyFunction.thatReturns = makeEmptyFunction;
+emptyFunction.thatReturnsFalse = makeEmptyFunction(false);
+emptyFunction.thatReturnsTrue = makeEmptyFunction(true);
+emptyFunction.thatReturnsNull = makeEmptyFunction(null);
+emptyFunction.thatReturnsThis = function () {
+  return this;
+};
+emptyFunction.thatReturnsArgument = function (arg) {
+  return arg;
+};
+
+module.exports = emptyFunction;
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright 2016-present, Facebook, Inc.
  * All rights reserved.
@@ -1168,51 +1212,7 @@ module.exports = ReactComponentTreeHook;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 10 */,
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- * 
- */
-
-function makeEmptyFunction(arg) {
-  return function () {
-    return arg;
-  };
-}
-
-/**
- * This function accepts and discards inputs; it has no side effects. This is
- * primarily useful idiomatically for overridable function endpoints which
- * always need to be callable, since JS lacks a null-call idiom ala Cocoa.
- */
-var emptyFunction = function emptyFunction() {};
-
-emptyFunction.thatReturns = makeEmptyFunction;
-emptyFunction.thatReturnsFalse = makeEmptyFunction(false);
-emptyFunction.thatReturnsTrue = makeEmptyFunction(true);
-emptyFunction.thatReturnsNull = makeEmptyFunction(null);
-emptyFunction.thatReturnsThis = function () {
-  return this;
-};
-emptyFunction.thatReturnsArgument = function (arg) {
-  return arg;
-};
-
-module.exports = emptyFunction;
-
-/***/ }),
+/* 11 */,
 /* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1554,7 +1554,7 @@ var _assign = __webpack_require__(4);
 
 var PooledClass = __webpack_require__(19);
 
-var emptyFunction = __webpack_require__(11);
+var emptyFunction = __webpack_require__(9);
 var warning = __webpack_require__(2);
 
 var didWarnForAddedNewProperty = false;
@@ -6230,7 +6230,7 @@ module.exports = ReactUpdateQueue;
 
 var _assign = __webpack_require__(4);
 
-var emptyFunction = __webpack_require__(11);
+var emptyFunction = __webpack_require__(9);
 var warning = __webpack_require__(2);
 
 var validateDOMNesting = emptyFunction;
@@ -10795,70 +10795,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /***/ }),
 /* 66 */,
 /* 67 */,
-/* 68 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _react = __webpack_require__(8);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(26);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-var IconBase = function IconBase(_ref, _ref2) {
-  var children = _ref.children;
-  var color = _ref.color;
-  var size = _ref.size;
-  var style = _ref.style;
-
-  var props = _objectWithoutProperties(_ref, ['children', 'color', 'size', 'style']);
-
-  var _ref2$reactIconBase = _ref2.reactIconBase;
-  var reactIconBase = _ref2$reactIconBase === undefined ? {} : _ref2$reactIconBase;
-
-  var computedSize = size || reactIconBase.size || '1em';
-  return _react2.default.createElement('svg', _extends({
-    children: children,
-    fill: 'currentColor',
-    preserveAspectRatio: 'xMidYMid meet',
-    height: computedSize,
-    width: computedSize
-  }, reactIconBase, props, {
-    style: _extends({
-      verticalAlign: 'middle',
-      color: color || reactIconBase.color
-    }, reactIconBase.style || {}, style)
-  }));
-};
-
-IconBase.propTypes = {
-  color: _propTypes2.default.string,
-  size: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
-  style: _propTypes2.default.object
-};
-
-IconBase.contextTypes = {
-  reactIconBase: _propTypes2.default.shape(IconBase.propTypes)
-};
-
-exports.default = IconBase;
-module.exports = exports['default'];
-
-/***/ }),
+/* 68 */,
 /* 69 */,
 /* 70 */
 /***/ (function(module, exports) {
@@ -11646,7 +11583,7 @@ module.exports = getIteratorFn;
 
 
 var ReactCurrentOwner = __webpack_require__(13);
-var ReactComponentTreeHook = __webpack_require__(9);
+var ReactComponentTreeHook = __webpack_require__(10);
 var ReactElement = __webpack_require__(18);
 
 var checkReactTypeSpec = __webpack_require__(124);
@@ -11926,7 +11863,7 @@ module.exports = function(isValidElement) {
 
 
 
-var emptyFunction = __webpack_require__(11);
+var emptyFunction = __webpack_require__(9);
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
 
@@ -14171,7 +14108,7 @@ module.exports = traverseAllChildren;
  * @typechecks
  */
 
-var emptyFunction = __webpack_require__(11);
+var emptyFunction = __webpack_require__(9);
 
 /**
  * Upstream version of event listener. Does not take into account specific
@@ -15543,7 +15480,7 @@ exports.push([module.i, ".ReactTable{position:relative;display:-webkit-box;displ
 var PooledClass = __webpack_require__(120);
 var ReactElement = __webpack_require__(18);
 
-var emptyFunction = __webpack_require__(11);
+var emptyFunction = __webpack_require__(9);
 var traverseAllChildren = __webpack_require__(121);
 
 var twoArgumentPooler = PooledClass.twoArgumentPooler;
@@ -16291,7 +16228,7 @@ if (typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 't
   // https://github.com/facebook/react/issues/7240
   // Remove the inline requires when we don't need them anymore:
   // https://github.com/facebook/react/pull/7178
-  ReactComponentTreeHook = __webpack_require__(9);
+  ReactComponentTreeHook = __webpack_require__(10);
 }
 
 var loggedTypeFailures = {};
@@ -16333,7 +16270,7 @@ function checkReactTypeSpec(typeSpecs, values, location, componentName, element,
 
         if (process.env.NODE_ENV !== 'production') {
           if (!ReactComponentTreeHook) {
-            ReactComponentTreeHook = __webpack_require__(9);
+            ReactComponentTreeHook = __webpack_require__(10);
           }
           if (debugID !== null) {
             componentStackInfo = ReactComponentTreeHook.getStackAddendumByID(debugID);
@@ -18857,7 +18794,7 @@ module.exports = ReactOwner;
 
 var ReactInvalidSetStateWarningHook = __webpack_require__(144);
 var ReactHostOperationHistoryHook = __webpack_require__(145);
-var ReactComponentTreeHook = __webpack_require__(9);
+var ReactComponentTreeHook = __webpack_require__(10);
 var ExecutionEnvironment = __webpack_require__(7);
 
 var performanceNow = __webpack_require__(146);
@@ -19784,7 +19721,7 @@ var DOMLazyTree = __webpack_require__(25);
 var ExecutionEnvironment = __webpack_require__(7);
 
 var createNodesFromMarkup = __webpack_require__(153);
-var emptyFunction = __webpack_require__(11);
+var emptyFunction = __webpack_require__(9);
 var invariant = __webpack_require__(1);
 
 var Danger = {
@@ -20216,7 +20153,7 @@ var ReactInstrumentation = __webpack_require__(12);
 var ReactMultiChild = __webpack_require__(172);
 var ReactServerRenderingTransaction = __webpack_require__(181);
 
-var emptyFunction = __webpack_require__(11);
+var emptyFunction = __webpack_require__(9);
 var escapeTextContentForBrowser = __webpack_require__(41);
 var invariant = __webpack_require__(1);
 var isEventSupported = __webpack_require__(51);
@@ -22513,7 +22450,7 @@ var ReactCurrentOwner = __webpack_require__(13);
 var ReactReconciler = __webpack_require__(24);
 var ReactChildReconciler = __webpack_require__(173);
 
-var emptyFunction = __webpack_require__(11);
+var emptyFunction = __webpack_require__(9);
 var flattenChildren = __webpack_require__(180);
 var invariant = __webpack_require__(1);
 
@@ -22971,7 +22908,7 @@ if (typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 't
   // https://github.com/facebook/react/issues/7240
   // Remove the inline requires when we don't need them anymore:
   // https://github.com/facebook/react/pull/7178
-  ReactComponentTreeHook = __webpack_require__(9);
+  ReactComponentTreeHook = __webpack_require__(10);
 }
 
 function instantiateChild(childInstances, child, name, selfDebugID) {
@@ -22979,7 +22916,7 @@ function instantiateChild(childInstances, child, name, selfDebugID) {
   var keyUnique = childInstances[name] === undefined;
   if (process.env.NODE_ENV !== 'production') {
     if (!ReactComponentTreeHook) {
-      ReactComponentTreeHook = __webpack_require__(9);
+      ReactComponentTreeHook = __webpack_require__(10);
     }
     if (!keyUnique) {
       process.env.NODE_ENV !== 'production' ? warning(false, 'flattenChildren(...): Encountered two children with the same key, ' + '`%s`. Child keys must be unique; when two children share a key, only ' + 'the first child will be used.%s', KeyEscapeUtils.unescape(name), ReactComponentTreeHook.getStackAddendumByID(selfDebugID)) : void 0;
@@ -24036,7 +23973,7 @@ if (typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 't
   // https://github.com/facebook/react/issues/7240
   // Remove the inline requires when we don't need them anymore:
   // https://github.com/facebook/react/pull/7178
-  ReactComponentTreeHook = __webpack_require__(9);
+  ReactComponentTreeHook = __webpack_require__(10);
 }
 
 var loggedTypeFailures = {};
@@ -24078,7 +24015,7 @@ function checkReactTypeSpec(typeSpecs, values, location, componentName, element,
 
         if (process.env.NODE_ENV !== 'production') {
           if (!ReactComponentTreeHook) {
-            ReactComponentTreeHook = __webpack_require__(9);
+            ReactComponentTreeHook = __webpack_require__(10);
           }
           if (debugID !== null) {
             componentStackInfo = ReactComponentTreeHook.getStackAddendumByID(debugID);
@@ -24254,7 +24191,7 @@ if (typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 't
   // https://github.com/facebook/react/issues/7240
   // Remove the inline requires when we don't need them anymore:
   // https://github.com/facebook/react/pull/7178
-  ReactComponentTreeHook = __webpack_require__(9);
+  ReactComponentTreeHook = __webpack_require__(10);
 }
 
 /**
@@ -24270,7 +24207,7 @@ function flattenSingleChildIntoContext(traverseContext, child, name, selfDebugID
     var keyUnique = result[name] === undefined;
     if (process.env.NODE_ENV !== 'production') {
       if (!ReactComponentTreeHook) {
-        ReactComponentTreeHook = __webpack_require__(9);
+        ReactComponentTreeHook = __webpack_require__(10);
       }
       if (!keyUnique) {
         process.env.NODE_ENV !== 'production' ? warning(false, 'flattenChildren(...): Encountered two children with the same key, ' + '`%s`. Child keys must be unique; when two children share a key, only ' + 'the first child will be used.%s', KeyEscapeUtils.unescape(name), ReactComponentTreeHook.getStackAddendumByID(selfDebugID)) : void 0;
@@ -24944,7 +24881,7 @@ var _assign = __webpack_require__(4);
 var ReactUpdates = __webpack_require__(14);
 var Transaction = __webpack_require__(38);
 
-var emptyFunction = __webpack_require__(11);
+var emptyFunction = __webpack_require__(9);
 
 var RESET_BATCHED_UPDATES = {
   initialize: emptyFunction,
@@ -26358,7 +26295,7 @@ var SyntheticTransitionEvent = __webpack_require__(206);
 var SyntheticUIEvent = __webpack_require__(30);
 var SyntheticWheelEvent = __webpack_require__(207);
 
-var emptyFunction = __webpack_require__(11);
+var emptyFunction = __webpack_require__(9);
 var getEventCharCode = __webpack_require__(63);
 var invariant = __webpack_require__(1);
 
@@ -27372,7 +27309,7 @@ module.exports = ReactMount.renderSubtreeIntoContainer;
 
 var DOMProperty = __webpack_require__(16);
 var EventPluginRegistry = __webpack_require__(37);
-var ReactComponentTreeHook = __webpack_require__(9);
+var ReactComponentTreeHook = __webpack_require__(10);
 
 var warning = __webpack_require__(2);
 
@@ -27488,7 +27425,7 @@ module.exports = ReactDOMUnknownPropertyHook;
 
 
 
-var ReactComponentTreeHook = __webpack_require__(9);
+var ReactComponentTreeHook = __webpack_require__(10);
 
 var warning = __webpack_require__(2);
 
@@ -27538,7 +27475,7 @@ module.exports = ReactDOMNullInputValuePropHook;
 
 
 var DOMProperty = __webpack_require__(16);
-var ReactComponentTreeHook = __webpack_require__(9);
+var ReactComponentTreeHook = __webpack_require__(10);
 
 var warning = __webpack_require__(2);
 
@@ -27732,7 +27669,7 @@ exports.default = ZNavbar;
 
 
 
-var emptyFunction = __webpack_require__(11);
+var emptyFunction = __webpack_require__(9);
 var invariant = __webpack_require__(1);
 var ReactPropTypesSecret = __webpack_require__(46);
 
@@ -30687,7 +30624,8 @@ function getTransitionProperties() {
 /* 238 */,
 /* 239 */,
 /* 240 */,
-/* 241 */
+/* 241 */,
+/* 242 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30764,19 +30702,20 @@ var ZFooter = function (_React$Component) {
               _react2.default.createElement(
                 'p',
                 null,
-                'Suggestions?',
-               _react2.default.createElement(
-                'a',
-                { href: 'https://myhush.org/#contact' },
-                ' Contact us '
+                'Suggestions? ',
+                _react2.default.createElement(
+                  'a',
+                  { href: 'https://myhush.org/#contact' },
+                  'Contact us'
+                ),
+                ' or join our ',
+                _react2.default.createElement(
+                  'a',
+                  { href: 'https://discord.io/hush' },
+                  'Discord'
+                ),
+                ' server!'
               ),
-                'or join our ',
-              _react2.default.createElement(
-                'a',
-                { href: 'https://discord.io/hush' },
-                'Discord '
-              ),
-                'server!'),
               _react2.default.createElement(
                 'p',
                 { style: longP },
@@ -30787,7 +30726,8 @@ var ZFooter = function (_React$Component) {
                   null,
                   'HUSH'
                 ),
-                ': t1UDhNq2aEqvxEbPzcRM8n2QJV8YJ664rXJ'
+                ': t1UDhNq2aEqvxEbPzcRM8n2QJV8YJ664rXJ',
+                _react2.default.createElement('br', null)
               )
             ),
             _react2.default.createElement(
@@ -30830,13 +30770,12 @@ var ZFooter = function (_React$Component) {
     }
   }]);
 
-    return ZFooter;
+  return ZFooter;
 }(_react2.default.Component);
 
-    exports.default = ZFooter;
+exports.default = ZFooter;
 
 /***/ }),
-/* 242 */,
 /* 243 */,
 /* 244 */,
 /* 245 */,
@@ -30870,82 +30809,8 @@ var ZFooter = function (_React$Component) {
 /* 273 */,
 /* 274 */,
 /* 275 */,
-/* 276 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _react = __webpack_require__(8);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactIconBase = __webpack_require__(68);
-
-var _reactIconBase2 = _interopRequireDefault(_reactIconBase);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var MdSettings = function MdSettings(props) {
-    return _react2.default.createElement(
-        _reactIconBase2.default,
-        _extends({ viewBox: '0 0 40 40' }, props),
-        _react2.default.createElement(
-            'g',
-            null,
-            _react2.default.createElement('path', { d: 'm20 25.9c3.2 0 5.9-2.7 5.9-5.9s-2.7-5.9-5.9-5.9-5.9 2.7-5.9 5.9 2.7 5.9 5.9 5.9z m12.4-4.3l3.5 2.8c0.4 0.2 0.4 0.7 0.2 1.1l-3.4 5.8c-0.2 0.3-0.6 0.4-1 0.3l-4.1-1.7c-0.9 0.7-1.8 1.3-2.8 1.7l-0.7 4.3c0 0.4-0.4 0.7-0.7 0.7h-6.8c-0.4 0-0.7-0.3-0.7-0.7l-0.7-4.3c-1-0.4-1.9-1-2.8-1.7l-4.1 1.7c-0.4 0.1-0.8 0-1-0.3l-3.4-5.8c-0.2-0.4-0.2-0.9 0.2-1.1l3.5-2.8c-0.1-0.5-0.1-1.1-0.1-1.6s0-1.1 0.1-1.6l-3.5-2.8c-0.4-0.2-0.4-0.7-0.2-1.1l3.4-5.7c0.2-0.4 0.6-0.5 1-0.4l4.1 1.7c0.9-0.6 1.8-1.3 2.8-1.7l0.7-4.3c0-0.4 0.3-0.7 0.7-0.7h6.8c0.3 0 0.7 0.3 0.7 0.7l0.7 4.3c1 0.4 1.9 1 2.8 1.7l4.1-1.7c0.4-0.1 0.8 0 1 0.4l3.4 5.7c0.2 0.4 0.2 0.9-0.2 1.1l-3.5 2.8c0.1 0.5 0.1 1.1 0.1 1.6s0 1.1-0.1 1.6z' })
-        )
-    );
-};
-
-exports.default = MdSettings;
-module.exports = exports['default'];
-
-/***/ }),
-/* 277 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _react = __webpack_require__(8);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactIconBase = __webpack_require__(68);
-
-var _reactIconBase2 = _interopRequireDefault(_reactIconBase);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var FaUnlockAlt = function FaUnlockAlt(props) {
-    return _react2.default.createElement(
-        _reactIconBase2.default,
-        _extends({ viewBox: '0 0 40 40' }, props),
-        _react2.default.createElement(
-            'g',
-            null,
-            _react2.default.createElement('path', { d: 'm30.6 17.1q0.9 0 1.5 0.7t0.6 1.5v12.8q0 0.9-0.6 1.6t-1.5 0.6h-21.5q-0.8 0-1.5-0.6t-0.6-1.6v-12.8q0-0.9 0.6-1.5t1.5-0.7h0.8v-7.1q0-4.1 2.9-7.1t7.1-2.9 7 2.9 3 7.1q0 0.6-0.5 1t-1 0.4h-1.4q-0.6 0-1-0.4t-0.4-1q0-2.4-1.7-4t-4-1.7-4.1 1.7-1.7 4v7.1h16.5z' })
-        )
-    );
-};
-
-exports.default = FaUnlockAlt;
-module.exports = exports['default'];
-
-/***/ }),
+/* 276 */,
+/* 277 */,
 /* 278 */,
 /* 279 */,
 /* 280 */,
@@ -31180,7 +31045,20 @@ module.exports = exports['default'];
 /* 509 */,
 /* 510 */,
 /* 511 */,
-/* 512 */
+/* 512 */,
+/* 513 */,
+/* 514 */,
+/* 515 */,
+/* 516 */,
+/* 517 */,
+/* 518 */,
+/* 519 */,
+/* 520 */,
+/* 521 */,
+/* 522 */,
+/* 523 */,
+/* 524 */,
+/* 525 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31202,22 +31080,22 @@ var _navbar = __webpack_require__(218);
 
 var _navbar2 = _interopRequireDefault(_navbar);
 
-var _guide = __webpack_require__(513);
+var _faq = __webpack_require__(526);
 
-var _guide2 = _interopRequireDefault(_guide);
+var _faq2 = _interopRequireDefault(_faq);
 
-var _footer = __webpack_require__(241);
+var _footer = __webpack_require__(242);
 
 var _footer2 = _interopRequireDefault(_footer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _reactDom2.default.render(_react2.default.createElement(_navbar2.default, null), document.getElementById('navbar'));
-_reactDom2.default.render(_react2.default.createElement(_guide2.default, null), document.getElementById('guide'));
+_reactDom2.default.render(_react2.default.createElement(_faq2.default, null), document.getElementById('faq'));
 _reactDom2.default.render(_react2.default.createElement(_footer2.default, null), document.getElementById('footer'));
 
 /***/ }),
-/* 513 */
+/* 526 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31235,14 +31113,6 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactstrap = __webpack_require__(64);
 
-var _unlockAlt = __webpack_require__(277);
-
-var _unlockAlt2 = _interopRequireDefault(_unlockAlt);
-
-var _settings = __webpack_require__(276);
-
-var _settings2 = _interopRequireDefault(_settings);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -31251,16 +31121,16 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var ZGuide = function (_React$Component) {
-  _inherits(ZGuide, _React$Component);
+var ZFaq = function (_React$Component) {
+  _inherits(ZFaq, _React$Component);
 
-  function ZGuide() {
-    _classCallCheck(this, ZGuide);
+  function ZFaq() {
+    _classCallCheck(this, ZFaq);
 
-    return _possibleConstructorReturn(this, (ZGuide.__proto__ || Object.getPrototypeOf(ZGuide)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (ZFaq.__proto__ || Object.getPrototypeOf(ZFaq)).apply(this, arguments));
   }
 
-  _createClass(ZGuide, [{
+  _createClass(ZFaq, [{
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
@@ -31273,129 +31143,65 @@ var ZGuide = function (_React$Component) {
             _reactstrap.Col,
             null,
             _react2.default.createElement(
-              'h3',
+              'p',
               null,
-              '1. Creating a new wallet'
+              _react2.default.createElement(
+                'b',
+                null,
+                'Q: Are my private keys secured?'
+              ),
+              _react2.default.createElement('br', null),
+              'A: Yes they are secured, your private keys never leave your browser.'
             ),
             _react2.default.createElement(
-              'ul',
+              'p',
               null,
               _react2.default.createElement(
-                'li',
+                'b',
                 null,
-                'Go to ',
-                _react2.default.createElement(
-                  'a',
-                  { href: 'https://wallet.myhush.org' },
-                  'https://wallet.myhush.org'
-                )
+                'Q: How is this secure? Its on a web browser!'
               ),
+              _react2.default.createElement('br', null),
+              'A: My Hush Wallet has replicated the core features of the HUSH daemon in JavaScript! So the process of creating and signing the transactions are all done within the browser. No sensitive information is sent through the network.'
+            ),
+            _react2.default.createElement(
+              'p',
+              null,
               _react2.default.createElement(
-                'li',
+                'b',
                 null,
-                'Enter a strong but easy to remember secret phrase. Save this somewhere and do NOT forget it.'
+                'Q: Can I have the source code?'
               ),
+              _react2.default.createElement('br', null),
+              'A: ',
               _react2.default.createElement(
-                'li',
-                null,
-                'Click the ',
-                _react2.default.createElement(
-                  'code',
-                  null,
-                  'Unlock Button'
-                ),
-                ' (',
-                _react2.default.createElement(_unlockAlt2.default, null),
-                ') on the right.'
-              ),
-              _react2.default.createElement(
-                'ul',
-                null,
-                _react2.default.createElement(
-                  'li',
-                  null,
-                  'This creates a ',
-                  _react2.default.createElement(
-                    'a',
-                    { href: 'https://en.bitcoin.it/wiki/Deterministic_wallet' },
-                    'deterministic wallet'
-                  ),
-                  ' based on your secret phrase.'
-                )
+                'a',
+                { href: 'https://github.com/myhush/myhushwallet' },
+                'Here you go'
               )
             ),
-            _react2.default.createElement('br', null),
             _react2.default.createElement(
-              'h3',
-              null,
-              '2. Accessing an existing wallet'
-            ),
-            _react2.default.createElement(
-              'ul',
+              'p',
               null,
               _react2.default.createElement(
-                'li',
+                'b',
                 null,
-                'If you\'ve created a wallet on ',
-                _react2.default.createElement(
-                  'a',
-                  { href: 'https://wallet.myhush.org' },
-                  'https://wallet.myhush.org'
-                ),
-                ' via the secret phrase, simply re-enter the same phrase.'
+                'Q: Why are you doing this?'
               ),
+              _react2.default.createElement('br', null),
+              'A: My Hush Wallet was inspired by ',
               _react2.default.createElement(
-                'li',
-                null,
-                'For those with a ',
-                _react2.default.createElement(
-                  'code',
-                  null,
-                  'wallet.dat'
-                ),
-                ' file generated by GUI wallets. Click ',
-                _react2.default.createElement(
-                  'code',
-                  null,
-                  'settings'
-                ),
-                ' (',
-                _react2.default.createElement(_settings2.default, null),
-                '), select the ',
-                _react2.default.createElement(
-                  'code',
-                  null,
-                  'Load wallet.dat'
-                ),
-                ' option and load your ',
-                _react2.default.createElement(
-                  'code',
-                  null,
-                  'wallet.dat'
-                ),
-                ' file'
+                'a',
+                { href: 'https://myzenwallet.io/' },
+                'MyZenWallet\'s'
               ),
+              ' which was inspired by ',
               _react2.default.createElement(
-                'li',
-                null,
-                'To unlock a single address, Click ',
-                _react2.default.createElement(
-                  'code',
-                  null,
-                  'settings'
-                ),
-                ' (',
-                _react2.default.createElement(_settings2.default, null),
-                '), select the ',
-                _react2.default.createElement(
-                  'code',
-                  null,
-                  'Paste private key'
-                ),
-                ' option, paste in your private key and click the unlock button (',
-                _react2.default.createElement(_unlockAlt2.default, null),
-                ')'
-              )
+                'a',
+                { href: 'https://myetherwallet.com' },
+                'MyEtherWallet\'s.'
+              ),
+              ' We also want to provide the people the ability to interact with the HUSH blockchain easily, without having to run a full node.'
             )
           )
         )
@@ -31403,10 +31209,10 @@ var ZGuide = function (_React$Component) {
     }
   }]);
 
-  return ZGuide;
+  return ZFaq;
 }(_react2.default.Component);
 
-exports.default = ZGuide;
+exports.default = ZFaq;
 
 /***/ })
 /******/ ]);
